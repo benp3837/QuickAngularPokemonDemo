@@ -1,0 +1,17 @@
+<div class="container-fluid">
+
+    <h2 class="mt-3">Welcome Trainer!</h2>
+
+    <h5 class="pe-5">You have {{this.pokemonService.numCaught}} Pokemon</h5>
+
+    <h3 class="mt-5 border-bottom">Caught Pokemon: </h3>
+
+    <!-- Using *ngFor to render a pokemon FOR every element in the caughtPokemon Array from PokemonService -->
+    <!-- I like flex wrap to automatically start a new row when the row width is full -->
+    <div class="d-flex flex-wrap">
+        <div *ngFor="let pokemon of this.pokemonService.caughtPokemon" class="p-3">
+          <img [src]="pokemon.sprite" height="100"/>
+        </div>
+    </div>
+
+</div>

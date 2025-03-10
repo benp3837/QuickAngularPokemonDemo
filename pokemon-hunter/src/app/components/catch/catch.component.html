@@ -1,0 +1,12 @@
+<div class="m-3">
+    <h3>Click a Pokemon to catch it!</h3>
+    <button class="btn btn-dark" (click)="getPokemon()">Reshuffle</button>
+</div>
+
+<div class="pokemon-container" style="position: relative; height: 100vh;">
+    <!-- Loop through the pokemon array and position them randomly -->
+    <div *ngFor="let pokemon of pokeArray" 
+         [ngStyle]="getRandomPosition()">
+      <img [src]="pokemon.sprite" height="100" (click)="catchPokemon(pokemon)"/>
+    </div>
+</div>
