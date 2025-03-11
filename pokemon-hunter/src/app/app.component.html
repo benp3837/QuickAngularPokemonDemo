@@ -1,4 +1,6 @@
+<!--only show the navbar if we're NOT on LoginComponent-->
+<!--(we set Login's path to an empty URL ("") in the router)-->
 <app-navbar *ngIf="router.url !== '/'"></app-navbar>
 
-
+<!--Exposes the routes we defined (in app.routes.ts) so we can use them-->
 <router-outlet></router-outlet>

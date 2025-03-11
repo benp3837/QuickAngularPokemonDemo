@@ -14,13 +14,15 @@ export class PokemonService {
   //Counter to track number of pokemon caught
   public numCaught:number = 0;
 
+  //Constructor Inject HttpClient so we can make HTTP requests
   constructor(private http: HttpClient) {}
 
   // Method to fetch one random Pokémon and add it to the array
   getRandomPokemon(): Observable<Pokemon> {
-    const randomId = Math.floor(Math.random() * 1025) + 1; // PokeAPI has 898 Pokémon
+    const randomId = Math.floor(Math.random() * 1025) + 1; // PokeAPI has 1025 Pokémon
     const url = `https://pokeapi.co/api/v2/pokemon/${randomId}`;
 
+    //TODO: get this understood and commented!
     return this.http.get<any>(url).pipe(map(response => {
       const pokemon: Pokemon = {
         name: response.name,

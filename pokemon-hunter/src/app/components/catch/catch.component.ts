@@ -19,7 +19,7 @@ export class CatchComponent {
   //When clicked, the user can catch them
   pokeArray:Pokemon[] = []
 
-  //Get 4 pokemon when the component renders
+  //Get 4 pokemon when the component renders (AKA on Initialization)
   ngOnInit(){
     this.getPokemon()
   }
@@ -33,6 +33,10 @@ export class CatchComponent {
       this.pokeArray.length = 0
     }
 
+    /*Get 4 random pokemon from pokeAPI
+    Look at the PokemonService to see the HTTP request to pokeAPI
+    When we get an Obserable, we can SUBSCRIBE to it to consume the data it holds
+    In this case, we're extracting a Pokemon object and adding it to the Array with push() */
     for(let i:number = 0; i < 4; i++){
       this.pokemonService.getRandomPokemon().subscribe(pokemon => {
         this.pokeArray.push(pokemon);  
@@ -54,13 +58,17 @@ export class CatchComponent {
 
   //Catch a pokemon (push the clicked pokemon into the array in PokemonService)
   catchPokemon(pokemon:Pokemon){
+
     this.pokemonService.caughtPokemon.push(pokemon)
+
+    //tell the user what happened
     alert("caught " + pokemon.name + "!")
 
     //remove the caught pokemon from the array
-    this.pokeArray.splice(this.pokeArray.indexOf(pokemon), 1); //1? this means delete one element from the found index
+    this.pokeArray.splice(this.pokeArray.indexOf(pokemon), 1); 
+    //1? this means delete one element starting from the found index (so just the one we caught)
 
-    //add to counter in PokemonService
+    //add to caught pokemon counter in PokemonService
     this.pokemonService.numCaught++
   }
 
