@@ -59,12 +59,12 @@ export class CatchComponent {
   //Catch a pokemon (push the clicked pokemon into the array in PokemonService)
   catchPokemon(pokemon:Pokemon){
 
-    this.pokemonService.caughtPokemon.push(pokemon)
+    this.pokemonService.caughtPokemon.push(pokemon) //Clicked pokemon gets added to service Array
 
     //tell the user what happened
     alert("caught " + pokemon.name + "!")
 
-    //remove the caught pokemon from the array
+    //remove the caught pokemon from the array (thus taking it out of the view!)
     this.pokeArray.splice(this.pokeArray.indexOf(pokemon), 1); 
     //1? this means delete one element starting from the found index (so just the one we caught)
 

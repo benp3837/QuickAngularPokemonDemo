@@ -17,18 +17,24 @@ export class PokemonService {
   //Constructor Inject HttpClient so we can make HTTP requests
   constructor(private http: HttpClient) {}
 
-  // Method to fetch one random Pokémon and add it to the array
+  //Method to fetch one random Pokémon
   getRandomPokemon(): Observable<Pokemon> {
-    const randomId = Math.floor(Math.random() * 1025) + 1; // PokeAPI has 1025 Pokémon
-    const url = `https://pokeapi.co/api/v2/pokemon/${randomId}`;
+    const randomId = Math.floor(Math.random() * 1025) + 1; //PokeAPI has 1025 Pokémon
+    const url = `https://pokeapi.co/api/v2/pokemon/${randomId}`; //the URL of our GET request
 
-    //TODO: get this understood and commented!
-    return this.http.get<any>(url).pipe(map(response => {
-      const pokemon: Pokemon = {
+    /*send HTTP GET request to pokeAPI, and convert the data into a Pokemon object
+    
+    -pipe() allows us to chain operations to process the data in the HTTP response
+    -map() is one such operation that lets us transform the data
+      -In this case we're taking the data and converting it into a Pokemon object
+      -This is what the CatchComponent will subscribe to in order to show pokemon!*/
+    return this.http.get<any>(url).pipe(
+      map(response => ({
         name: response.name,
         sprite: response.sprites.front_default
-      };
-      return pokemon;
-    }));
+      }))
+    );
+  
+
   }
 }
