@@ -10,8 +10,9 @@
     <!-- I like flex wrap to automatically start a new row when the row width is full -->
     <div class="d-flex flex-wrap">
         <div *ngFor="let pokemon of this.pokemonService.caughtPokemon" class="p-3">
-          <img [src]="pokemon.sprite" height="100"/>
-          <p class="ps-4">{{pokemon.name | titlecase}}</p> <!--Using a pipe here! Built-in Titlecase pipe-->
+          <app-pokemon
+            [pokemon]="pokemon"
+          />
         </div>
     </div>
 

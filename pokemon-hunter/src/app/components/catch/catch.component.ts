@@ -54,7 +54,7 @@ export class CatchComponent {
       top: randomTop,
       left: randomLeft
     };
-  }
+  }    
 
   //Catch a pokemon (push the clicked pokemon into the array in PokemonService)
   catchPokemon(pokemon:Pokemon){
@@ -72,4 +72,4 @@ export class CatchComponent {
     this.pokemonService.numCaught++
   }
 
-}
+}  

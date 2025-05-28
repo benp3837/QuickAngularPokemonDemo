@@ -1,0 +1,14 @@
+<div class="card position-relative shadow-lg text-center bg-dark" style="width: 18rem;">
+    <!-- X button -->
+    <button type="button" class="btn-close btn-close-white position-absolute top-0 end-0 m-2" aria-label="Close"></button>
+  
+    <!-- Pokemon Image -->
+    <img [src]="pokemon.sprite" class="card-img-top mx-auto" style="width: 100px; height: 100px;" [alt]="pokemon.name">
+  
+    <!-- Card Body -->
+    <div class="card-body">
+      <h5 class="card-title text-light">{{ pokemon.name | titlecase}}</h5>
+      <p class="card-text text-light">Pokedex #{{ pokemon.id }}</p>
+    </div>
+</div>
+  

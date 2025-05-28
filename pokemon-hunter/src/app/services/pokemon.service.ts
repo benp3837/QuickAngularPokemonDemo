@@ -30,11 +30,11 @@ export class PokemonService {
       -This is what the CatchComponent will subscribe to in order to show pokemon!*/
     return this.http.get<any>(url).pipe(
       map(response => ({
+        id:response.id,
         name: response.name,
         sprite: response.sprites.front_default
-      }))
+      })) 
     );
   
-
   }
 }

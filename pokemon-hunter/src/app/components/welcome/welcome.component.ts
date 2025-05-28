@@ -1,10 +1,11 @@
 import { Component } from '@angular/core';
 import { PokemonService } from '../../services/pokemon.service';
 import { CommonModule, NgFor } from '@angular/common';
+import { PokemonComponent } from '../pokemoncard/pokemon.component';
 
 @Component({
   selector: 'app-welcome',
-  imports: [NgFor, CommonModule],
+  imports: [NgFor, CommonModule, PokemonComponent],
   templateUrl: './welcome.component.html',
   styleUrl: './welcome.component.css'
 })

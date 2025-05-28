@@ -9,5 +9,8 @@ export const appConfig: ApplicationConfig = {
   providers: [provideZoneChangeDetection({ eventCoalescing: true }), 
     provideRouter(routes), 
     provideClientHydration(withEventReplay()), 
-    provideHttpClient(withInterceptorsFromDi())] //Need to add this provider before we can send http requests
+    provideHttpClient(withInterceptorsFromDi()),//Need to add this provider before we can send http requests
+  ]
 };
+
+
